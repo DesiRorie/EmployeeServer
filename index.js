@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/api/posts", (req, res) => {
-  console.log({
+  res.send({
     employees: {
       Desi: { name: "desi", phone: "123" },
     },
