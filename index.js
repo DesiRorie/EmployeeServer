@@ -13,9 +13,9 @@ app.post("/api/posts", (req, res) => {
       Desi: { name: "desi", phone: "123" },
     },
   });
-})
+});
 app.get("/api/posts", (req, res) => {
-  console.log("you asked for a post?");
+  res.send("hellllllooooooo");
 });
 app.listen(9000, () => {
   console.log(" You Have Been Served");
