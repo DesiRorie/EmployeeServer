@@ -53,6 +53,7 @@ app.post("/api/employees", async (req, res) => {
 app.get("/api/employees", async (req, res) => {
   try {
     const db = await dbPromise;
+    await db.query("SELECT * FROM employees");
     const [result] = await db.query("SELECT * FROM employees");
 
     res.send(result);
