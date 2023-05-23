@@ -64,6 +64,7 @@ app.get("/api/employees", async (req, res) => {
 app.get("/api/posts", (req, res) => {
   res.send("hellllllooooooo");
 });
-app.listen(9000, () => {
-  console.log(" You Have Been Served");
+
+app.listen(process.env.PORT || 9000, "0.0.0.0", () => {
+  console.log("Server started");
 });
