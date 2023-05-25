@@ -102,6 +102,23 @@ const createPool = async () => {
 };
 
 const poolPromise = createPool();
+app.put("/api/employees/:id", async (req, res) => {
+  try {
+    const pool = await poolPromise;
+    const employeeId = req.params.id;
+    const editedEmployee = req.body;
+
+    await pool.query(
+      "UPDATE employees SET firstName = ?, lastName = ? WHERE id = ?",
+      [editedEmployee.firstName, editedEmployee.lastName, employeeId]
+    );
+
+    res.send("Employee updated");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error updating employee");
+  }
+});
 
 app.post("/api/employees", async (req, res) => {
   try {
